@@ -22,3 +22,13 @@ I have my own conventions for inputs name, so make sure to check the `kInput` sc
 * Added support for hit detection. This process relies on a message passing between various scripts. On entering a hit animation, the `tFightInform` script passes the hit information to the fighting module, which activates the adequate hitbox. If the hitbox collides with a hurtbox while being activated, it will give to the hurtbox the hit data (impact strengh, animation to play...) which again will call the fight module with relevant informations. Hit and impact are specific states that imply particular movement function. Specifically, when hitting, the character mobility is somewhat restrained. Also, when being impacted, the movement is driven by the hit animation data. 
 
 Video at: https://youtu.be/CYrc3MgrWUw
+
+## 20/04 Update 
+
+* Added support for locking
+* Added CameraShake for hits, and hit effects 
+
+The class used to convey Hit informations to relevant scripts (`HitAnimationData` holding informations such as hit power, impulsion...) has been enhanced with an instance of the `ShakeParameters` class, which, as its name suggests holds the shake parameters related to this specific hit. Which means you can define shakes per hit if needed.  
+
+
+Video at: https://youtu.be/Sum0ciAz1JE
