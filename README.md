@@ -32,3 +32,23 @@ The class used to convey Hit informations to relevant scripts (`HitAnimationData
 
 
 Video at: https://youtu.be/Sum0ciAz1JE
+
+# 04/05 Update 
+
+This update introduces a important change. Now, all camera movements and effects rely on Cinemachine (which is such a great package, by the way). 
+
+More specifically, the main changes are: 
+* Free look Camera for normal mode, using orbits. 
+* Impulses are replacing the previous CameraShake approach. 
+* FightMode camera for keeping enemy in sight when locked to it
+
+
+**Notes**: 
+* For the camera shake on impact: Impulses are created by the `FightModule` using informations from `HitAnimationData`. It is similar to the previous approach, except that this time, the Impulses are defined to fit Cinemachine expectations. 
+* Entering fight mode does two things: Changes the character movement to always face the enemy and adapts some animator values. Changes the priority of the Virtual Camera used for fighting. This camera binding mode is LockToTargetWithWorldUp to clip the x axis value (using SimpleFollow won't allow you to do so). Currently the system is not robust as it only lerps the x axis value to be a constant (-15° in the video). 
+
+
+Video at: https://youtu.be/yrQGPQ9TPJs
+
+
+
