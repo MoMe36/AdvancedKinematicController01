@@ -50,5 +50,15 @@ More specifically, the main changes are:
 
 Video at: https://youtu.be/yrQGPQ9TPJs
 
+# 05/05 Update
+
+Some quick fixes and a few additions. 
+* Added some trails for dashing and hit. They are trails attached to particles. The particles themselves are not rendered, only the trails. These are attached to Empties with the Hitbox script that has been extended to deal with Dashboxes as well. When activated, they will create an instance of the trail effect and destroy it a moment later. Some parameters allow the user to manage the created instance can (whether it will be a children of the box, inital rotation settings and so on)
+
+* Snapping to enemy. Now, this is a cool feature, in my opinion. When locked to a target, if the player asks to hit, the character will quickly snap to the foe it is fighting. There a threshold distance that terminates the process when the player is close enough. I feel this feature adds a lot of punch to the prototype. 
+
+* Enemy impact. I created a ImpactBehaviour class for handling impacts more easily, given the incresing complexity. Relies on a state machine with three states: **normal**, **heavy** and **wall**. Heavy hits (in particular in combo's end), can be set to indicate that this is a projection hit. This set the Impact behaviour to **heavy**  and sends the enemy flying for a short amount of time (controllable from the ImpactBehaviour class parameters, along with speed). When time's over, the animator is set to play the normal impact animation before getting back to normal state. Meanwhile, a `raycast` is sent for behind the character and if a wall is close enough, we enter the **wall** state, which plays the WallImpact animation. 
+
+Video at: https://youtu.be/agAXrZQQBo4
 
 
